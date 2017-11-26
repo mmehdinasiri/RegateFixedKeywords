@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegateFixedKeywords</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="./vue.js"></script>
+    <script src="./jscript.js" ></script>
+</head>
+
+
+<style  type='text/css'>
+    [data-Fixedkey] .tagWrapper {
+        list-style: none;
+        padding-right: 0;
+    }
+    [data-Fixedkey] .tagWrapper li {
+            display: inline-block;
+        }
+
+    [data-Fixedkey] .tag {
+        display: inline-block;
+        color: #000;
+        background-color: #ccc;
+        padding: 5px 10px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 2px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    [data-Fixedkey] .active {
+        background-color: #62cb31;
+        color: #fff;
+    }
+    [data-Fixedkey] .textBox {
+        margin-right: 5px;
+    }
+</style>
+
+<body>
+
+    <div data-fixedKey='FixedKeywordsA'>
+        <ul class='tagWrapper'>
+            <li v-for='(el,index) in tag'>
+                <p class='tag' v-bind:class='{ active: isActive[index] }' v-on:click='addTolist($event, index)'>{{ el }}</p>
+            </li>
+        </ul>
+        <textarea class='textBox' name='FixedKeywords' cols='35' rows='10'>{{selected}}</textarea>
+        <button type='submit' value='Submit' >Submit</button>
+    </div>
+
+
+    <script>
+        fixedKeywords('FixedKeywordsA', ['خودرو', 'شیمی', 'فیزیک', 'ریاضی'])
+    </script>
+
+
+</body>
+</html> 
